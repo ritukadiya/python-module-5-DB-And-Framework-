@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Search Results</h1>
+  <ul>
+    {% for subcategory in subcategories %}
+      <li>{{ subcategory.product.name }} - {{ subcategory.model }} - {{ subcategory.price }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

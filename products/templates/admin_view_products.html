@@ -1,0 +1,22 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>View Products</h1>
+  <h2>Products</h2>
+  <ul>
+    {% for product in products %}
+      <li>{{ product.name }} 
+          <a href="{% url 'admin_edit_product' product.pk %}">Edit</a> 
+          <a href="{% url 'admin_delete_product' product.pk %}">Delete</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Subcategories</h2>
+  <ul>
+    {% for subcategory in subcategories %}
+      <li>{{ subcategory.product.name }} - {{ subcategory.model }} 
+          <a href="{% url 'admin_edit_product_subcategory' subcategory.pk %}">Edit</a> 
+          <a href="{% url 'admin_delete_product_subcategory' subcategory.pk %}">Delete</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
